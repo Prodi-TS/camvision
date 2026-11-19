@@ -12,6 +12,7 @@ import P18VisionAnalysis from './p18/P18VisionAnalysis.jsx'
 import P17VisionTesting from './p17/P17VisionTesting.jsx'
 import P16AmrVisionMission from './p16/P16AmrVisionMission.jsx'
 import P15ObjectDetection from './p15/P15ObjectDetection.jsx'
+import { LabParentBar } from '../components/LabParent.jsx'
 import { learningModules } from '../data/learningData.js'
 
 export default function LearningDetail() {
@@ -24,27 +25,62 @@ export default function LearningDetail() {
 
   // P13 sudah memiliki halaman pembelajaran sendiri (Tahap 2).
   if (module.id === 'p13') {
-    return <P13Camera />
+    return (
+      <>
+        <LabParentBar moduleId="p13" />
+        <P13Camera />
+      </>
+    )
   }
 
   // P14 sampai P19 memiliki halaman pembelajaran sendiri.
   if (module.id === 'p14') {
-    return <P14ImageProcessing />
+    return (
+      <>
+        <LabParentBar moduleId="p14" />
+        <P14ImageProcessing />
+      </>
+    )
   }
   if (module.id === 'p15') {
-    return <P15ObjectDetection />
+    return (
+      <>
+        <LabParentBar moduleId="p15" />
+        <P15ObjectDetection />
+      </>
+    )
   }
   if (module.id === 'p16') {
-    return <P16AmrVisionMission />
+    return (
+      <>
+        <LabParentBar moduleId="p16" />
+        <P16AmrVisionMission />
+      </>
+    )
   }
   if (module.id === 'p17') {
-    return <P17VisionTesting />
+    return (
+      <>
+        <LabParentBar moduleId="p17" />
+        <P17VisionTesting />
+      </>
+    )
   }
   if (module.id === 'p18') {
-    return <P18VisionAnalysis />
+    return (
+      <>
+        <LabParentBar moduleId="p18" />
+        <P18VisionAnalysis />
+      </>
+    )
   }
   if (module.id === 'p19') {
-    return <P19VisionOptimization />
+    return (
+      <>
+        <LabParentBar moduleId="p19" />
+        <P19VisionOptimization />
+      </>
+    )
   }
 
   return (

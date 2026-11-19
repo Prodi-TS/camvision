@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../auth.jsx'
 import Icon from '../components/Icon.jsx'
+import { DEMO_ACCOUNT } from '../data/accounts.js'
 
 export default function Login() {
   const { login } = useAuth()
@@ -78,6 +79,26 @@ export default function Login() {
           <button type="submit" className="btn btn--primary login__submit">
             Masuk
           </button>
+
+          <div className="login__demo">
+            <p className="login__demo-title">Ingin mencoba tanpa akun?</p>
+            <p className="login__demo-text">
+              Pakai akun contoh: username <code>{DEMO_ACCOUNT.username}</code>, password{' '}
+              <code>{DEMO_ACCOUNT.password}</code>.
+            </p>
+            <button
+              type="button"
+              className="btn btn--secondary"
+              onClick={() => {
+                setUsername(DEMO_ACCOUNT.username)
+                setPassword(DEMO_ACCOUNT.password)
+                setError('')
+              }}
+            >
+              Isi otomatis
+            </button>
+            <p className="login__demo-text">Data akun contoh hanya tersimpan di browser yang dipakai.</p>
+          </div>
 
           <p className="login__note">
             Pengecekan login masih dilakukan di browser, belum di server.

@@ -1,0 +1,10 @@
+.lab-parent-bar-wrap { padding-bottom: 20px; }
+.lab-parent-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.lab-parent-bar__text { margin: 2px 0 0; font-size: 14px; opacity: .8; }
+.lab-parent-tag { margin: 0; font-size: 13px; display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.lab-parent-tag__stage { opacity: .75; }
+.lab-parent-tag__label { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: #e0f2fe; color: #075985; }
+.lab-materi__hint { margin: 0 0 8px; font-size: 14px; opacity: .8; }
+.lab-materi__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.lab-materi__list li { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 0; border-top: 1px solid #e5e7eb; }
+.lab-materi__stage { font-size: 13px; opacity: .75; }

@@ -3,6 +3,7 @@ import Button from '../components/Button.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import StatusBadge from '../components/StatusBadge.jsx'
 import Icon from '../components/Icon.jsx'
+import { LabParentTag } from '../components/LabParent.jsx'
 import useModuleProgress from '../data/useModuleProgress.js'
 
 export default function Learning() {
@@ -26,6 +27,7 @@ export default function Learning() {
             </div>
             <h2>{m.title}</h2>
             <p>{m.description}</p>
+            <LabParentTag moduleId={m.id} />
             <div className="item-card__action">
               <Button to={`/pembelajaran/${m.id}`}>{m.progress > 0 ? 'Lanjutkan' : 'Mulai'}</Button>
             </div>

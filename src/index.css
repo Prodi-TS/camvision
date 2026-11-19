@@ -905,3 +905,9 @@ a {
     max-width: none;
   }
 }
+
+/* Kotak akun contoh di halaman login */
+.login__demo { margin-top: 16px; padding: 12px 14px; border: 1px dashed #94a3b8; border-radius: 10px; background: #f8fafc; display: grid; gap: 6px; justify-items: start; }
+.login__demo-title { margin: 0; font-weight: 700; font-size: 14px; }
+.login__demo-text { margin: 0; font-size: 13px; color: #475569; }
+.login__demo code { padding: 1px 6px; border-radius: 6px; background: #e2e8f0; font-size: 13px; color: #0f172a; }

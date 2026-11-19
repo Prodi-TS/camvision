@@ -115,6 +115,33 @@ export const labs = [
   },
 ]
 
+// Hubungan materi dengan lab induknya: lab mana yang dipakai untuk mempraktikkan materi itu.
+// `stage` adalah tahap di dalam lab gabungan (kosong bila lab tidak bertahap).
+export const MODULE_LAB = {
+  p13: { lab: 'camera-explorer', stage: null, stageLabel: '' },
+  p14: { lab: 'vision-pipeline-lab', stage: 'olah', stageLabel: 'Tahap 1 · Olah Gambar' },
+  p15: { lab: 'vision-pipeline-lab', stage: 'deteksi', stageLabel: 'Tahap 2 · Deteksi Objek' },
+  p16: { lab: 'vision-pipeline-lab', stage: 'misi', stageLabel: 'Tahap 3 · Misi AMR' },
+  p17: { lab: 'vision-test-analysis-lab', stage: 'uji', stageLabel: 'Tahap 1 · Uji' },
+  p18: { lab: 'vision-test-analysis-lab', stage: 'analisis', stageLabel: 'Tahap 2 · Analisis' },
+  p19: { lab: 'vision-optimization-lab', stage: null, stageLabel: '' },
+}
+
+export function labOfModule(moduleId) {
+  const link = MODULE_LAB[moduleId]
+  if (!link) return null
+  const lab = labs.find((l) => l.id === link.lab)
+  if (!lab) return null
+  const to = `/virtual-lab/${lab.id}${link.stage ? `?tahap=${link.stage}` : ''}`
+  return { lab, to, stageLabel: link.stageLabel }
+}
+
+export function modulesOfLab(labId) {
+  return learningModules
+    .filter((m) => MODULE_LAB[m.id] && MODULE_LAB[m.id].lab === labId)
+    .map((m) => ({ ...m, stageLabel: MODULE_LAB[m.id].stageLabel }))
+}
+
 export const quizzes = [
   { id: 'quiz-1', title: 'Quiz 1 — Camera', status: 'Belum dikerjakan' },
   { id: 'quiz-2', title: 'Quiz 2 — Image Processing', status: 'Belum dikerjakan' },

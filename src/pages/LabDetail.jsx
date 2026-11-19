@@ -7,6 +7,7 @@ import WorkshopLab, { WORKSHOPS } from './labs/workshop/WorkshopLab.jsx'
 import VisionPipelineLab from './labs/merged/VisionPipelineLab.jsx'
 import VisionTestAnalysisLab from './labs/merged/VisionTestAnalysisLab.jsx'
 import VisionOptimizationLab from './labs/vision-optimization/VisionOptimizationLab.jsx'
+import { LabMateriCard } from '../components/LabParent.jsx'
 import { labs } from '../data/learningData.js'
 
 // Alamat lab lama (sebelum digabung) diarahkan ke tahap yang sesuai pada lab gabungan,
@@ -35,19 +36,39 @@ export default function LabDetail() {
 
   // Lab berbentuk Bengkel Teknisi (tiket kerusakan).
   if (WORKSHOPS[lab.id]) {
-    return <WorkshopLab lab={lab} />
+    return (
+      <>
+        <LabMateriCard labId={lab.id} />
+        <WorkshopLab lab={lab} />
+      </>
+    )
   }
 
   if (lab.id === 'vision-pipeline-lab') {
-    return <VisionPipelineLab lab={lab} />
+    return (
+      <>
+        <LabMateriCard labId={lab.id} />
+        <VisionPipelineLab lab={lab} />
+      </>
+    )
   }
 
   if (lab.id === 'vision-test-analysis-lab') {
-    return <VisionTestAnalysisLab lab={lab} />
+    return (
+      <>
+        <LabMateriCard labId={lab.id} />
+        <VisionTestAnalysisLab lab={lab} />
+      </>
+    )
   }
 
   if (lab.id === 'vision-optimization-lab') {
-    return <VisionOptimizationLab lab={lab} />
+    return (
+      <>
+        <LabMateriCard labId={lab.id} />
+        <VisionOptimizationLab lab={lab} />
+      </>
+    )
   }
 
   // Lab lain sementara menampilkan placeholder.
