@@ -1,0 +1,14 @@
+# Dependensi dan hasil build
+node_modules/
+dist/
+
+# Log dan berkas lokal
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

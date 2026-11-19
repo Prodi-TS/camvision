@@ -1,0 +1,524 @@
+/* ===== Dokumen portofolio =====
+   Di layar tampil seperti selembar kertas. Saat dicetak (body.pf-printing), hanya dokumen ini
+   yang ikut tercetak. Menu samping, bilah atas, dan kartu halaman disembunyikan. */
+
+.pf-doc {
+  --pf-line: #c9d3df;
+  --pf-head: #eef3f8;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 36px 40px 32px;
+  background: #ffffff;
+  color: #0f1c2e;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 2px rgba(15, 28, 46, 0.05), 0 8px 24px rgba(15, 28, 46, 0.06);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pf-doc p {
+  margin: 6px 0;
+}
+
+.pf-head {
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 3px solid var(--brand);
+}
+
+.pf-kicker {
+  margin: 0;
+  color: var(--brand-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pf-head h2 {
+  margin: 4px 0 2px;
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+
+.pf-head h2:focus {
+  outline: none;
+}
+
+.pf-sub {
+  color: var(--muted);
+}
+
+.pf-meta {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.pf-notice {
+  margin: 0 0 6px;
+  padding: 10px 14px;
+  border-left: 4px solid #d98e04;
+  border-radius: 6px;
+  background: var(--active-bg);
+  color: var(--active-ink);
+}
+
+.pf-part {
+  margin-top: 26px;
+}
+
+.pf-part h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--pf-line);
+  font-size: 1.2rem;
+  line-height: 1.3;
+  break-after: avoid;
+}
+
+.pf-part h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin: 18px 0 6px;
+  font-size: 1.02rem;
+  break-after: avoid;
+}
+
+.pf-part h5 {
+  margin: 14px 0 4px;
+  font-size: 0.95rem;
+  break-after: avoid;
+}
+
+.pf-no {
+  display: inline-grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border-radius: 13px;
+  background: var(--brand);
+  color: #ffffff;
+  font-size: 0.85rem;
+}
+
+/* Status */
+.pf-tag {
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.pf-tag--ok {
+  background: var(--success-bg);
+  color: var(--success-ink);
+}
+
+.pf-tag--warn {
+  background: var(--active-bg);
+  color: var(--active-ink);
+}
+
+.pf-tag--none {
+  background: var(--neutral-bg);
+  color: var(--neutral-ink);
+}
+
+.pf-ok {
+  color: #166534;
+  font-weight: 600;
+}
+
+.pf-bad {
+  color: #991b1b;
+  font-weight: 600;
+}
+
+.pf-missing {
+  color: #6b7a8f;
+  font-style: italic;
+}
+
+.pf-empty {
+  color: #4a5a70;
+  font-style: italic;
+}
+
+.pf-note {
+  color: #4a5a70;
+  font-size: 0.9rem;
+}
+
+/* Identitas */
+.pf-dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+  margin: 0;
+}
+
+.pf-dl > div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid #e3e9f0;
+}
+
+.pf-dl dt {
+  color: #4a5a70;
+}
+
+.pf-dl dd {
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Ringkasan */
+.pf-summary {
+  padding: 14px 18px 16px;
+  border: 1px solid var(--pf-line);
+  border-radius: 10px;
+  background: #f7fafc;
+}
+
+.pf-summary h3 {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pf-todo {
+  margin-top: 8px;
+}
+
+.pf-todo__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.pf-todo ul {
+  margin: 2px 0 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 1px;
+  font-size: 0.92rem;
+}
+
+.pf-todo__link {
+  color: var(--brand-strong);
+  text-decoration: underline;
+}
+
+/* Tabel */
+.pf-table-wrap {
+  margin: 6px 0 8px;
+  overflow-x: auto;
+}
+
+.pf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.pf-table th,
+.pf-table td {
+  padding: 6px 9px;
+  border: 1px solid var(--pf-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.pf-table thead th {
+  background: var(--pf-head);
+  font-weight: 700;
+}
+
+.pf-bar {
+  display: inline-block;
+  width: 90px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 4px;
+  background: #e3e9f0;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.pf-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--brand);
+}
+
+/* Lab dan refleksi */
+.pf-lab {
+  margin-top: 14px;
+  padding-top: 2px;
+}
+
+.pf-stage {
+  margin-left: 0;
+}
+
+.pf-refl {
+  margin-top: 10px;
+}
+
+.pf-qa {
+  margin: 8px 0 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--pf-line);
+  break-inside: avoid;
+}
+
+.pf-q {
+  margin: 0;
+  font-weight: 600;
+}
+
+.pf-a {
+  margin: 2px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Gambar dari kamera */
+.pf-gallery {
+  margin: 12px 0 4px;
+}
+
+.pf-gallery h5 {
+  margin: 0 0 6px;
+}
+
+.pf-figs {
+  display: grid;
+  gap: 10px 12px;
+}
+
+.pf-figs--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pf-figs--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pf-fig {
+  margin: 0;
+  break-inside: avoid;
+}
+
+.pf-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--pf-line);
+  border-radius: 4px;
+  background: #111111;
+}
+
+.pf-fig figcaption {
+  margin-top: 3px;
+  color: #4a5a70;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.pf-fig--none {
+  display: grid;
+  align-content: center;
+  min-height: 84px;
+  padding: 8px;
+  border: 1px dashed var(--pf-line);
+  border-radius: 4px;
+}
+
+.pf-fig--none figcaption {
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+.pf-foot {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid var(--pf-line);
+  color: #4a5a70;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .pf-doc {
+    padding: 22px 16px;
+  }
+
+  .pf-dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf-dl > div {
+    grid-template-columns: 120px minmax(0, 1fr);
+  }
+
+  .pf-figs--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pf-figs--2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ===== Pengelola gambar kamera (hanya di layar) ===== */
+.pf-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.pf-check input {
+  margin-top: 4px;
+}
+
+.pf-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px 12px;
+  margin: 14px 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.pf-thumb {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  font-size: 0.85rem;
+}
+
+.pf-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 4px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #111111;
+}
+
+.pf-thumb__title {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pf-thumb__time {
+  color: var(--muted);
+}
+
+.pf-thumb__del {
+  justify-self: start;
+}
+
+.pf-confirm {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid #e7b9b9;
+  border-radius: 10px;
+  background: #fdf1f1;
+}
+
+/* ===== Cetak / simpan sebagai PDF ===== */
+@page {
+  size: A4 portrait;
+  margin: 14mm 12mm;
+}
+
+@media print {
+  body.pf-printing {
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body.pf-printing .sidebar,
+  body.pf-printing .topbar,
+  body.pf-printing .app__overlay,
+  body.pf-printing .pf-noprint,
+  body.pf-printing .pf-page > :not(.pf-doc-wrap) {
+    display: none !important;
+  }
+
+  body.pf-printing .app,
+  body.pf-printing .app__main,
+  body.pf-printing .content,
+  body.pf-printing .page {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    width: auto;
+  }
+
+  body.pf-printing .pf-doc {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+
+  body.pf-printing .pf-head h2 {
+    font-size: 20pt;
+  }
+
+  body.pf-printing .pf-part {
+    margin-top: 16pt;
+  }
+
+  body.pf-printing .pf-table-wrap {
+    overflow: visible;
+  }
+
+  body.pf-printing .pf-table {
+    font-size: 9.5pt;
+  }
+
+  body.pf-printing .pf-table thead {
+    display: table-header-group;
+  }
+
+  body.pf-printing .pf-table tr {
+    break-inside: avoid;
+  }
+
+  body.pf-printing .pf-todo__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  body.pf-printing .pf-doc a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
