@@ -15,7 +15,7 @@ export default function Header({ onMenuClick }) {
       >
         <Icon name="menu" size={22} />
       </button>
-      <div className="topbar__title">Interactive Computer Vision Laboratory</div>
+      <div className="topbar__title">Lab Maya Penglihatan Robot</div>
       <Link to="/profil" className="topbar__user" aria-label="Buka profil">
         <span className="topbar__avatar">
           <Icon name="user" size={16} />

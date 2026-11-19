@@ -13,7 +13,7 @@ export default function Dashboard() {
     <div className="page">
       <section className="hero viewfinder">
         <div className="hero__text">
-          <h1>Selamat datang di Computer Vision AMR Learning Lab</h1>
+          <h1>Selamat datang di Lab Maya Penglihatan Robot</h1>
           <p>Belajar melihat, memahami, menguji, dan mengoptimalkan penglihatan robot.</p>
         </div>
         <div className="hero__progress">

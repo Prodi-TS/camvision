@@ -26,7 +26,7 @@ export default function Login() {
         <div className="login__logo">
           <Icon name="eye" size={28} />
         </div>
-        <h1>Computer Vision AMR Learning Lab</h1>
+        <h1>Lab Maya Penglihatan Robot</h1>
         <p>Belajar melihat, memahami, menguji, dan mengoptimalkan penglihatan robot.</p>
       </section>
 

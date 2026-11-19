@@ -1,4 +1,4 @@
-# Computer Vision AMR Learning Lab
+# Lab Maya Penglihatan Robot
 
 Website pembelajaran Computer Vision untuk Autonomous Mobile Robot (AMR), SMK Telkom Jakarta, mata pelajaran Teknisi AMR.
 Tujuh pertemuan: Camera, Image Processing, Object Detection, AMR Vision Mission, Vision Testing, Vision Analysis, Vision Optimization.

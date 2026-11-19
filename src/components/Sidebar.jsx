@@ -1,14 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import Icon from './Icon.jsx'
-import { learningModules, labs } from '../data/learningData.js'
+import { learningModules, labs, labOfModule } from '../data/learningData.js'
 
-function NavItem({ to, icon, end = false, sub = false, children }) {
+function NavItem({ to, icon, end = false, sub = false, sub2 = false, children }) {
   return (
     <NavLink
       to={to}
       end={end}
       className={({ isActive }) =>
-        `nav-link${sub ? ' nav-link--sub' : ''}${isActive ? ' is-active' : ''}`
+        `nav-link${sub ? ' nav-link--sub' : ''}${sub2 ? ' nav-link--sub2' : ''}${isActive ? ' is-active' : ''}`
       }
     >
       {icon && <Icon name={icon} size={18} />}
@@ -16,6 +16,22 @@ function NavItem({ to, icon, end = false, sub = false, children }) {
     </NavLink>
   )
 }
+
+// Susunan menu Pembelajaran: materi yang labnya hanya satu berdiri sendiri,
+// materi yang berbagi lab induk dikelompokkan di bawah nama lab itu.
+const LEARNING_TREE = (() => {
+  const tree = []
+  learningModules.forEach((m) => {
+    const info = labOfModule(m.id)
+    const same = info ? learningModules.filter((x) => labOfModule(x.id)?.lab.id === info.lab.id) : [m]
+    if (same.length <= 1) {
+      tree.push(m)
+      return
+    }
+    if (same[0].id === m.id) tree.push({ label: info.lab.shortTitle, children: same })
+  })
+  return tree
+})()
 
 export default function Sidebar({ open, onClose }) {
   return (
@@ -25,8 +41,8 @@ export default function Sidebar({ open, onClose }) {
           <Icon name="eye" size={22} />
         </div>
         <div>
-          <div className="sidebar__brand-title">Computer Vision</div>
-          <div className="sidebar__brand-sub">AMR Learning Lab</div>
+          <div className="sidebar__brand-title">Lab Maya</div>
+          <div className="sidebar__brand-sub">Penglihatan Robot</div>
         </div>
         <button
           type="button"
@@ -39,25 +55,38 @@ export default function Sidebar({ open, onClose }) {
       </div>
 
       <nav className="sidebar__nav">
-        <NavItem to="/" icon="dashboard" end>
-          Dashboard
-        </NavItem>
-        <NavItem to="/profil" icon="user">
-          Profil
-        </NavItem>
+        <div className="nav-group nav-group--first">
+          <NavItem to="/" icon="dashboard" end>
+            Dashboard
+          </NavItem>
+          <NavItem to="/profil" sub>
+            Profil
+          </NavItem>
+          <NavItem to="/hasil" sub>
+            Hasil Saya
+          </NavItem>
+        </div>
 
         <div className="nav-group">
           <NavItem to="/pembelajaran" icon="book" end>
             Pembelajaran
           </NavItem>
-          {learningModules.map((m) => (
-            <NavItem key={m.id} to={`/pembelajaran/${m.id}`} sub>
-              {m.title}
-            </NavItem>
-          ))}
-          <NavItem to="/quiz" sub>
-            Quiz
-          </NavItem>
+          {LEARNING_TREE.map((node) =>
+            node.children ? (
+              <div key={node.label} className="nav-branch">
+                <div className="nav-branch__label">{node.label}</div>
+                {node.children.map((m) => (
+                  <NavItem key={m.id} to={`/pembelajaran/${m.id}`} sub2>
+                    {m.navTitle || m.title}
+                  </NavItem>
+                ))}
+              </div>
+            ) : (
+              <NavItem key={node.id} to={`/pembelajaran/${node.id}`} sub>
+                {node.navTitle || node.title}
+              </NavItem>
+            ),
+          )}
         </div>
 
         <div className="nav-group">
@@ -71,8 +100,8 @@ export default function Sidebar({ open, onClose }) {
           ))}
         </div>
 
-        <NavItem to="/hasil" icon="chart">
-          Hasil Saya
+        <NavItem to="/quiz" icon="help">
+          Quiz
         </NavItem>
         <NavItem to="/portofolio" icon="folder">
           Portofolio

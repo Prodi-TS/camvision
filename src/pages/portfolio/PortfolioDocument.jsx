@@ -417,7 +417,7 @@ export default function PortfolioDocument({ data, at, images, headingRef }) {
   return (
     <article className="pf-doc" aria-labelledby="pf-title">
       <header className="pf-head">
-        <p className="pf-kicker">Interactive Computer Vision Laboratory</p>
+        <p className="pf-kicker">Lab Maya Penglihatan Robot</p>
         <h2 id="pf-title" tabIndex={-1} ref={headingRef}>
           Portofolio Hasil Belajar
         </h2>

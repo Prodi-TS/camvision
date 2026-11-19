@@ -911,3 +911,11 @@ a {
 .login__demo-title { margin: 0; font-weight: 700; font-size: 14px; }
 .login__demo-text { margin: 0; font-size: 13px; color: #475569; }
 .login__demo code { padding: 1px 6px; border-radius: 6px; background: #e2e8f0; font-size: 13px; color: #0f172a; }
+
+/* Cabang lab induk di menu Pembelajaran */
+.nav-group--first { margin-top: 0; border-top: 0; }
+.nav-branch { display: flex; flex-direction: column; gap: 1px; }
+.nav-branch__label { padding: 8px 12px 3px 42px; font-size: 0.88rem; font-weight: 600; color: #67e8f9; }
+.nav-link--sub2 { padding: 5px 12px 5px 58px; font-size: 0.85rem; font-weight: 400; }
+.nav-link--sub2.is-active { font-weight: 600; }
+.nav-group--first + .nav-group { border-top: 0; margin-top: 0; }

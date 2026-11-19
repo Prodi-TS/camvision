@@ -51,6 +51,7 @@ export const learningModules = [
   },
   {
     id: 'p17',
+    navTitle: 'Testing',
     code: 'P17',
     title: 'Vision Testing',
     description: 'Menguji kinerja sistem penglihatan robot.',
@@ -60,6 +61,7 @@ export const learningModules = [
   },
   {
     id: 'p18',
+    navTitle: 'Analysis',
     code: 'P18',
     title: 'Vision Analysis',
     description: 'Menganalisis hasil pengujian penglihatan robot.',
@@ -69,6 +71,7 @@ export const learningModules = [
   },
   {
     id: 'p19',
+    navTitle: 'Optimization',
     code: 'P19',
     title: 'Vision Optimization',
     description: 'Meningkatkan kinerja penglihatan robot.',
@@ -100,7 +103,7 @@ export const labs = [
   {
     id: 'vision-test-analysis-lab',
     title: 'Vision Test & Analysis Lab',
-    shortTitle: 'Vision Test & Analysis',
+    shortTitle: 'Test & Analysis',
     description: 'Dua tahap berurutan: uji sistem penglihatan robot, lalu cari penyebab kegagalannya.',
     icon: 'chart',
     status: 'Tersedia',
@@ -108,7 +111,7 @@ export const labs = [
   {
     id: 'vision-optimization-lab',
     title: 'Vision Optimization Lab',
-    shortTitle: 'Vision Optimization',
+    shortTitle: 'Optimization',
     description: 'Praktik meningkatkan kinerja penglihatan robot.',
     icon: 'zap',
     status: 'Tersedia',
